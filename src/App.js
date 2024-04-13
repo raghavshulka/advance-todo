@@ -26,7 +26,7 @@ function App() {
     >
       <div className="App">
         <Add />
-        <Todoitems /> {/* Render the Todoitem component to consume the context */}
+        <Todoitems /> 
       </div>
     </TodoItem.Provider>
   );
