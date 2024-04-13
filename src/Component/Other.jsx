@@ -3,15 +3,14 @@ import { TodoItem } from "../Store/Todo-Item-Store";
 import { useContext } from "react";
 
 const Other = ({ Name, onDeleteClick }) => {
-  const obj = useContext(TodoItem);
-  const todos = obj.todo;
+  const {todo} = useContext(TodoItem);
   return (
     <div>
       <div style={{ flexDirection: "column" }}>
         <div style={{ display: "flex" }}>
           <p>{Name}</p>
           <button
-            onClick={()=>onDeleteClick(todos)}
+            onClick={()=>onDeleteClick(todo)}
             style={{ background: "red", padding: "5px", margin: "10px" }}
           >
             Delete

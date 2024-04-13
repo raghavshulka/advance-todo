@@ -1,34 +1,16 @@
 import "./App.css";
 import Add from "./Component/Add";
 import Todoitems from "./Component/Todoitem.jsx";
-import { useState } from "react";
-import { TodoItem } from "./Store/Todo-Item-Store.jsx";
+import Store from "./Store/Todo-Item-Store.jsx";
 
 function App() {
-  const [todo, addTodo] = useState([]);
-
-  const handler = (itemName) => {
-    const newtodo = [...todo, { Name: itemName }];
-    addTodo(newtodo);
-  };
-
-  const handlerDeleteitem = (todoitem) => {
-    const newtodo = todo.filter((item) => item.Name !== todoitem);
-    addTodo(newtodo);
-  };
   return (
-    <TodoItem.Provider
-      value={{
-        todo: todo,
-        handlers: handler,
-        handlerDeleteitem: handlerDeleteitem,
-      }}
-    >
+    <Store>
       <div className="App">
         <Add />
-        <Todoitems /> 
+        <Todoitems />
       </div>
-    </TodoItem.Provider>
+    </Store>
   );
 }
 

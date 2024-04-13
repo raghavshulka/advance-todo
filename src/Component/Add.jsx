@@ -4,8 +4,7 @@ import { TodoItem } from "../Store/Todo-Item-Store";
 import { useContext } from "react";
 
 const Add = () => {
-  const items = useContext(TodoItem);
-  const obj = items.handlers;
+  const {handler} = useContext(TodoItem);
 
   const [value, setValue] = useState("");
   function handlers(e) {
@@ -13,7 +12,7 @@ const Add = () => {
   }
 
   function handleAddButton() {
-    obj(value);
+    handler(value);
     setValue("");
   }
   return (

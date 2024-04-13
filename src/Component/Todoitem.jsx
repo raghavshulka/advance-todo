@@ -4,13 +4,12 @@ import { TodoItem } from "../Store/Todo-Item-Store";
 import { useContext } from "react";
 
  const Todoitems = () => {
-  const obj = useContext(TodoItem);
-  const remove = obj.handlerDeleteitem;
-  const todos = obj.todo;
+  const {handlerDeleteitem,todo} = useContext(TodoItem);
+ 
   return (
     <div>
-      {todos.length > 0 ? (
-        todos.map((Item) => <Other Name={Item.Name} onDeleteClick={()=>remove(Item.Name)} />)
+      {todo.length > 0 ? (
+        todo.map((Item) => <Other Name={Item.Name} onDeleteClick={()=>handlerDeleteitem(Item.Name)} />)
       ) : (
         <h1>enjoy your day</h1>
       )}
